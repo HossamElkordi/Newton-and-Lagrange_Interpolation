@@ -3,7 +3,15 @@ from math import *
 
 
 class Interpolation:
+    def __init__(self, expression):
+        self.expression = expression
 
+    def f(self, x):
+        return self.evaluate(x)
+
+    def evaluate(self, x):
+        return eval(self.expression)
+    
     def newton_coeff(self, xes, yes):
         xes = numpy.copy(xes)
         yes = numpy.copy(yes)

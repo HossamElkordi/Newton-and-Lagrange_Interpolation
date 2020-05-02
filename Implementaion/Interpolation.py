@@ -6,12 +6,6 @@ class Interpolation:
     def __init__(self, expression):
         self.expression = expression
 
-    def f(self, x):
-        return self.evaluate(x)
-
-    def evaluate(self, x):
-        return eval(self.expression)
-
     def newton_coeff(self, xes, yes):
         xes = numpy.copy(xes)
         yes = numpy.copy(yes)
@@ -57,11 +51,15 @@ def bubbleSortxy(arrx, arry):
                 arry[j], arry[j + 1] = arry[j + 1], arry[j]
 
 
+
+def evaluate(exp, x):
+    return eval(exp)
+
 def laGrange(xes, yes, query):
     bubbleSortxy(xes, yes)
     op = laGrangeHelper(xes, yes)
     for i in range(len(query)):
-        query[i] = evaluate(op, query[i])
+        query[i] =  evaluate(op, query[i])
     return [op, query]
 
 

@@ -26,11 +26,22 @@ class Interpolation:
         degree = len(xes) - 1
         answer = []
         y = coefficient[degree]
-        string = str(y)
+        string = ''
+        for i in range(0, len(coefficient)):
+            if coefficient[i] < 0:
+                string = string+str(coefficient[i])
+            else:
+                string = string+'+'+str(coefficient[i])
+            for j in range(0, i):
+                if xes[j] < 0:
+                    string = string+'(x+'+str(abs(xes[j]))+')'
+                else:
+                    string = string + '(x-' + str(xes[j]) + ')'
+#        string = str(y)
         for x in X:
             for i in range(1, degree + 1):
                 y = coefficient[degree - i] + (x - xes[degree - i]) * y
-                string = '(' + str(coefficient[degree - i]) + '(x-' + str(xes[degree - i]) + ')' + string + ')'
+#               string = '(' + str(coefficient[degree - i]) + '(x-' + str(xes[degree - i]) + ')' + string + ')'
             answer.append(y)
         return [answer, string]
 

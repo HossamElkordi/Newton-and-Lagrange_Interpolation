@@ -11,7 +11,7 @@ class Interpolation:
 
     def evaluate(self, x):
         return eval(self.expression)
-    
+
     def newton_coeff(self, xes, yes):
         xes = numpy.copy(xes)
         yes = numpy.copy(yes)
@@ -31,9 +31,7 @@ class Interpolation:
             for i in range(1, degree + 1):
                 y = coefficient[degree - i] + (x - xes[degree - i]) * y
                 string = '(' + str(coefficient[degree - i]) + '(x-' + str(xes[degree - i]) + ')' + string + ')'
-                continue
             answer.append(y)
-            continue
         return [answer, string]
 
 

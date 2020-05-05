@@ -58,7 +58,7 @@ class Interpolation:
         op = self.laGrangeHelper(xes, yes)
         for i in range(len(query)):
             query[i] =  self.evaluate(op, query[i])
-        return [op, query]
+        return [query, op]
 
 
     def laGrangeHelper(self, xes, yes):

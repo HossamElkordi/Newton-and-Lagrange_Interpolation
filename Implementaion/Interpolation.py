@@ -35,13 +35,15 @@ class Interpolation:
                     string = string+'(x+'+str(abs(xes[j]))+')'
                 else:
                     string = string + '(x-' + str(xes[j]) + ')'
+                if j < i-1:
+                    string = string + '*'
 #        string = str(y)
         for x in X:
-            y = coefficient[degree]
+#            y = coefficient[degree]
             for i in range(1, degree + 1):
-                y = coefficient[degree - i] + (x - xes[degree - i]) * y
+                answer.append(self.evaluate(string, x))
+#                y = coefficient[degree - i] + (x - xes[degree - i]) * y
 #               string = '(' + str(coefficient[degree - i]) + '(x-' + str(xes[degree - i]) + ')' + string + ')'
-            answer.append(y)
         return [answer, string]
 
 

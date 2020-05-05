@@ -24,10 +24,12 @@ class Interpolation:
         answer = []
         string = ''
         for i in range(0, len(coefficient)):
-            if coefficient[i] < 0:
-                string = string+str(coefficient[i])
+            if i == 0:
+                string = str(coefficient[i])
+            elif coefficient[i] < 0:
+                string = string+str(coefficient[i])+'*'
             else:
-                string = string+'+'+str(coefficient[i])
+                string = string+'+'+str(coefficient[i])+'*'
             for j in range(0, i):
                 if xes[j] < 0:
                     string = string+'(x+'+str(abs(xes[j]))+')'

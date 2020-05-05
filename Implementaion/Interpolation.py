@@ -3,8 +3,8 @@ from math import *
 
 
 class Interpolation:
-    def __init__(self, expression):
-        self.expression = expression
+    def __init__(self):
+        pass
 
     def evaluate(self, exp, x):
         return eval(exp)
@@ -22,7 +22,6 @@ class Interpolation:
         coefficient = self.newton_coeff(xes, yes)
         degree = len(xes) - 1
         answer = []
-        y = coefficient[degree]
         string = ''
         for i in range(0, len(coefficient)):
             if coefficient[i] < 0:
@@ -36,6 +35,7 @@ class Interpolation:
                     string = string + '(x-' + str(xes[j]) + ')'
 #        string = str(y)
         for x in X:
+            y = coefficient[degree]
             for i in range(1, degree + 1):
                 y = coefficient[degree - i] + (x - xes[degree - i]) * y
 #               string = '(' + str(coefficient[degree - i]) + '(x-' + str(xes[degree - i]) + ')' + string + ')'

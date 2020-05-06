@@ -7,8 +7,6 @@
 
 import sys
 
-from graphPlotter import graphPlotter
-
 try:
     import Tkinter as tk
 except ImportError:
@@ -23,7 +21,7 @@ except ImportError:
 
     py3 = True
 
-import InterpolationGui_support
+from Implementaion import InterpolationGui_support
 
 
 def vp_start_gui():

@@ -5,15 +5,11 @@
 #  in conjunction with Tcl version 8.6
 #    Apr 15, 2020 05:32:31 PM +0200  platform: Windows NT
 
-import sys
-from decimal import Decimal
-from numpy import double
 import time
-import Interpolation as inter
-import graphPlotter as gp
 import traceback
-from reportlab.pdfgen import canvas
-import PyPDF2
+
+from Implementaion import Interpolation as inter
+from Implementaion import graphPlotter as gp
 
 try:
     import Tkinter as tk
@@ -75,7 +71,7 @@ def interpolate(txt, gph):
             answer = solver.laGrange(x, y, xes)
             s = print_lagrange(txt, xes, answer, current)
         txt.insert(tk.END, s)
-        gp.graphPlotter(gph, answer, solver, False, '')
+        gp.graphPlotter(gph, answer[1], x, y, solver)
 
     except Exception:
         traceback.print_exc()

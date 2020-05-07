@@ -28,10 +28,11 @@ class graphPlotter():
 
         self.fx = np.arange(min(self.xes), max(self.xes) + 0.2, 0.2)
         self.fy = np.array([self.solver.evaluate(self.expression, num) for num in self.fx])
-        self.plt.plot(self.fx, self.fy, color='r')
-        self.plt.scatter(self.xes, self.yes, color='b')
+        self.plt.plot(self.fx, self.fy, color='r', label='y(x)')
+        self.plt.scatter(self.xes, self.yes, color='b', label='Dataset')
         self.plt.axhline(y=0, color='k', label='X-Axis')
         self.plt.axvline(x=0, color='k', label='Y-Axis')
+        self.plt.legend()
 
         self.canvas = FigureCanvasTkAgg(self.fig, self.frame)
 

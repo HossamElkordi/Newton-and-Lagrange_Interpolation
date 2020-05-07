@@ -23,28 +23,36 @@ class Interpolation:
         degree = len(xes) - 1
         answer = []
         string = ''
+        rounded = ''
         for i in range(0, len(coefficient)):
             if i == 0:
                 string = str(coefficient[i])
+                rounded = str(round(coefficient[i], 5))
             elif coefficient[i] < 0:
                 string = string+str(coefficient[i])+'*'
+                rounded = rounded + str(round(coefficient[i], 5)) + '*'
             else:
                 string = string+'+'+str(coefficient[i])+'*'
+                rounded = rounded+'+'+str(round(coefficient[i], 5)) + '*'
             for j in range(0, i):
                 if xes[j] < 0:
                     string = string+'(x+'+str(abs(xes[j]))+')'
+                    rounded = rounded + '(x+' + str(round(abs(xes[j]), 5)) + ')'
                 else:
                     string = string + '(x-' + str(xes[j]) + ')'
+                    rounded = rounded + '(x-' + str(round(xes[j], 5)) + ')'
                 if j < i-1:
                     string = string + '*'
+                    rounded = rounded + '*'
 #        string = str(y)
         for x in X:
-#            y = coefficient[degree]
+            y = coefficient[degree]
             for i in range(1, degree + 1):
-                answer.append(self.evaluate(string, x))
-#                y = coefficient[degree - i] + (x - xes[degree - i]) * y
+#                answer.append(self.evaluate(string, x))
+                y = coefficient[degree - i] + (x - xes[degree - i]) * y
+            answer.append(y)
 #               string = '(' + str(coefficient[degree - i]) + '(x-' + str(xes[degree - i]) + ')' + string + ')'
-        return [answer, string]
+        return [answer, string, rounded]
 
 
 # https://stackoverflow.com/questions/14823891/newton-s-interpolating-polynomial-python

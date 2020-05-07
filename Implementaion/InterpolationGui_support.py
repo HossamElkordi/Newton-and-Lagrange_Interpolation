@@ -104,24 +104,24 @@ def string_to_list(string):
 def print_newton(console, xes, answer, current):
     y_list = answer[0]
     s = ''
-    s += 'y(x): {}\n'.format(answer[1])
-    s += 'Execution time: {} milliseconds\n\n'.format(time.time() * 1000 - current)
-    s += 'Points calculated with y(x):\n({}, {})\n'.format(round(xes[0], 5), round(y_list[0], 5))
+    s += 'y(x): {}\n'.format(answer[2])
+    s += 'Execution time: {} milliseconds\n'.format(time.time() * 1000 - current)
+    s += 'Points calculated with y(x): ({}, {})\n'.format(xes[0], round(y_list[0], 5))
     if len(xes) > 1:
         for i in range(1, len(xes)):
-            s += '({}, {})\n'.format(round(xes[i], 5), round(y_list[i], 5))
+            s += '\t\t\t     ({}, {})\n'.format(xes[i], round(y_list[i], 5))
     return s
 
 
 def print_lagrange(console, xes, answer, current):
     y_list = answer[0]
     s = ''
-    s += 'y(x): {}\n'.format(answer[1])
-    s += 'Execution time: {} milliseconds\n\n'.format(time.time() * 1000 - current)
-    s += 'Points calculated with y(x):\n({}, {})\n'.format(round(xes[0], 5), round(y_list[0], 5))
+    s += 'y(x): {}\n'.format(answer[2])
+    s += 'Execution time: {} milliseconds\n'.format(time.time() * 1000 - current)
+    s += 'Points calculated with y(x): ({}, {})\n'.format(xes[0], round(y_list[0], 5))
     if len(xes) > 1:
         for i in range(1, len(xes)):
-            s += '({}, {})\n'.format(round(xes[i], 5), round(y_list[i], 5))
+            s += '\t\t\t     ({}, {})\n'.format(xes[i], round(y_list[i], 5))
     return s
 
 def destroy_window():

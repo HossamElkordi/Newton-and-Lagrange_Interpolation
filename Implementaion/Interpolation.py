@@ -67,24 +67,34 @@ class Interpolation:
 
     def laGrange(self, xes, yes, query):
         self.bubbleSortxy(xes, yes)
-        op = self.laGrangeHelper(xes, yes)
+        helper = self.laGrangeHelper(xes, yes)
+        op = helper[0]
+        other_yes = [len(query)]
         for i in range(len(query)):
-            query[i] =  self.evaluate(op, query[i])
-        return [query, op]
+            other_yes[i] = self.evaluate(op, query[i])
+        return [other_yes, op, helper[1]]
 
 
     def laGrangeHelper(self, xes, yes):
+        rounded = ''
         op = "("
         n = len(xes)
         for i in range(n):
             op = op + "(("
+            rounded = rounded + "(("
             for j in range(n):
                 if j == i:
                     continue
                 op = op + "("
+                rounded = rounded + "("
                 op = op + "(x-" + str(xes[j]) + ")/(" + str(xes[i] - xes[j]) + "))*"
+                rounded = rounded + "(x-" + str(round(xes[j], 5)) + ")/(" + str(round(xes[i] - xes[j], 5)) + "))*"
             op = op[:-1]
+            rounded = rounded[:-1]
             op = op + ")*" + str(yes[i]) + ")+"
+            rounded = rounded + ")*" + str(round(yes[i], 5)) + ")+"
         op = op[:-1]
+        rounded = rounded[:-1]
         op = op + ")"
-        return op
+        rounded = rounded + ")"
+        return [op, rounded]

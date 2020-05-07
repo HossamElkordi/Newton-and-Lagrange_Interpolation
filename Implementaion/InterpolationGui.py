@@ -102,8 +102,10 @@ class interpolation:
         self.graphConsole.configure(highlightcolor="#ffffff")
 
         self.textCanvas = tk.Text(self.textConsole)
-        self.scrolText = ttk.Scrollbar(self.textConsole, command=self.textCanvas.yview)
-        self.scrolText.pack(side=tk.RIGHT, fill=tk.Y)
+        self.scrollYText = ttk.Scrollbar(self.textConsole, command=self.textCanvas.yview)
+        self.scrollYText.pack(side=tk.RIGHT, fill=tk.Y)
+        self.scrollXText = ttk.Scrollbar(self.textConsole, orient='horizontal', command=self.textCanvas.xview)
+        self.scrollXText.pack(side=tk.BOTTOM, fill=tk.X)
         self.textCanvas.place(relx=0.0, rely=0.0, relheight=1, relwidth=1)
         self.textCanvas.configure(background="#3e3e3e")
         self.textCanvas.configure(foreground="#ffffff")

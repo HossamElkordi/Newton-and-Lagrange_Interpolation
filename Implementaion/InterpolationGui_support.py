@@ -37,8 +37,6 @@ def set_Tk_var():
     y_input = tk.StringVar()
     global x_points
     x_points = tk.StringVar()
-    global poly_order
-    poly_order = tk.StringVar()
 
 
 def init(top, gui, *args, **kwargs):

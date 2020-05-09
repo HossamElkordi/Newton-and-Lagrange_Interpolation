@@ -180,22 +180,6 @@ class interpolation:
         self.pointsEntry.configure(cursor="arrow")
         self.pointsEntry.configure(textvariable=InterpolationGui_support.x_points)
 
-        self.orderLbl = ttk.Label(top)
-        self.orderLbl.place(relx=0.02, rely=0.326, height=19, width=258)
-        self.orderLbl.configure(background="#4b4b4b")
-        self.orderLbl.configure(foreground="#ffffff")
-        self.orderLbl.configure(font="TkDefaultFont")
-        self.orderLbl.configure(relief="flat")
-        self.orderLbl.configure(anchor='e')
-        self.orderLbl.configure(justify='right')
-        self.orderLbl.configure(
-            text='Enter the polynomial order:')
-
-        self.orderEntry = ttk.Entry(top)
-        self.orderEntry.place(relx=0.500, rely=0.326, relheight=0.037, relwidth=0.191)
-        self.orderEntry.configure(takefocus="")
-        self.orderEntry.configure(cursor="arrow")
-        self.orderEntry.configure(textvariable=InterpolationGui_support.poly_order)
         # self.methodsCB.bind("<<ComboboxSelected>>", lambda frame=self.directFr, label=self.enterLbl:
         # self.itemChanged(frame, label))
 

@@ -1,6 +1,3 @@
-from time import time
-from tkinter import ttk
-
 from matplotlib import style
 import numpy as np
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk

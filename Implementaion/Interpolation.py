@@ -1,5 +1,4 @@
 import numpy
-from math import *
 
 
 class Interpolation:
@@ -44,19 +43,14 @@ class Interpolation:
                 if j < i-1:
                     string = string + '*'
                     rounded = rounded + '*'
-#        string = str(y)
         for x in X:
             y = coefficient[degree]
             for i in range(1, degree + 1):
-#                answer.append(self.evaluate(string, x))
                 y = coefficient[degree - i] + (x - xes[degree - i]) * y
             answer.append(y)
-#               string = '(' + str(coefficient[degree - i]) + '(x-' + str(xes[degree - i]) + ')' + string + ')'
         return [answer, string, rounded]
 
 
-# https://stackoverflow.com/questions/14823891/newton-s-interpolating-polynomial-python
-# with 2 votes
     def bubbleSortxy(self, arrx, arry):
         n = len(arrx)
         for i in range(n - 1):

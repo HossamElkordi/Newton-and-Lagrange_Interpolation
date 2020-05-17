@@ -63,9 +63,9 @@ class Interpolation:
         self.bubbleSortxy(xes, yes)
         helper = self.laGrangeHelper(xes, yes)
         op = helper[0]
-        other_yes = [len(query)]
+        other_yes = []
         for i in range(len(query)):
-            other_yes[i] = self.evaluate(op, query[i])
+            other_yes.append(self.evaluate(op, query[i]))
         return [other_yes, op, helper[1]]
 
 
